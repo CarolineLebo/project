@@ -79,6 +79,47 @@
 		</footer>
 	</div>
 
+<?php 
+
+
+session_start();
+
+$firstName=strtoupper($_POST['firstName']);
+$pass=$_POST['password'];	
+
+//to protect MySQL injection
+$firstName = stripslashes($firstName);
+$pass = stripslashes($pass);
+$firstName = mysql_real_escape_string($firstName);
+$pass = mysql_real_escape_string($pass);
+
+if($firstName && $pass)
+{	
+	$connect = mysqli_connect ('localhost', 'projects','bags', 'c&tbags_db') or die ("Couldnt connect to the database");
+	
+	$query = 'SELECT * FROM user WHERE FIRST_NAME="'.$firstName.'" AND PASSWORD ="'.md5($pass).'"';
+	
+	$result = mysqli_query ($connect, $query) or die (mysql_error());
+
+	$numrows = mysqli_num_rows($result);
+	
+	if ($numrows != 0)
+	{	
+		header("Location: home.php");
+		$_SESSION['username'] = $firstName;
+	}
+	else
+	{
+		die ("Username doesn't exist");
+	}
+}
+else
+{
+	die ("Please enter a username and password");	
+}
+
+ ?>
+
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery-1.11.0.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
