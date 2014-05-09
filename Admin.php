@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -143,3 +144,57 @@ echo mysql_affected_rows($conn)."Admin Logged in";
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
+=======
+<?php
+class Administrator {
+
+	private $adminFName;
+	private $adminLName;
+	private $adminPassword;
+	
+	
+	
+	function setAdminFName($adminFName)
+	{
+		
+		$this->adminFName = $adminFNamea;
+	}
+	
+	function setAdminLName($adminLName)
+	{
+		
+	$this->adminLName = $adminLName;
+	}
+	
+	function setAdminPassword($adminPassword)
+	{
+		
+		$this->adminPassword = $adminPassword;
+	}
+	
+	
+
+
+	function getAdminFName()
+	{
+		return $this->adminFName;
+	}
+	
+	function getAdminLName()
+	{
+		return $this->adminLName;
+	}
+	
+	function getAdminPassword()
+	{
+		return $this->adminPassword;
+	}
+	
+	
+	
+	
+	}
+
+
+?>
+>>>>>>> 2701da7763880bbc9b42d6fa058521f20225aa28
